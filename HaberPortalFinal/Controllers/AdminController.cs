@@ -138,7 +138,7 @@ namespace HaberPortalFinal.Controllers
                 throw;
             }
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(List));
         }
 
         [Authorize(Roles = "admin")]
@@ -185,7 +185,7 @@ namespace HaberPortalFinal.Controllers
 
             _context.News.Remove(news);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(List));
         }
 
         public async Task<IActionResult> Details(int? id)
