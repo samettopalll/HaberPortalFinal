@@ -52,42 +52,52 @@ namespace HaberPortal.Controllers
 
         public async Task<IActionResult> Economy()
         {
-            return _context.News != null ?
-                        View(await _context.News.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.News'  is null.");
+            var news = _context.News != null ?
+                            await _context.News.OrderByDescending(n => n.Id).ToListAsync() :
+                            null;
+
+            return news != null ? View(news) : Problem("Entity set 'AppDbContext.News' is null.");
         }
 
 
 
         public async Task<IActionResult> Politics()
         {
-            return _context.News != null ?
-                        View(await _context.News.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.News'  is null.");
+            var news = _context.News != null ?
+                            await _context.News.OrderByDescending(n => n.Id).ToListAsync() :
+                            null;
+
+            return news != null ? View(news) : Problem("Entity set 'AppDbContext.News' is null.");
         }
 
 
 
         public async Task<IActionResult> Sport()
         {
-            return _context.News != null ?
-                        View(await _context.News.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.News'  is null.");
+            var news = _context.News != null ?
+                             await _context.News.OrderByDescending(n => n.Id).ToListAsync() :
+                             null;
+
+            return news != null ? View(news) : Problem("Entity set 'AppDbContext.News' is null.");
         }
 
 
         public async Task<IActionResult> Global()
         {
-            return _context.News != null ?
-                        View(await _context.News.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.News'  is null.");
+            var news = _context.News != null ?
+                            await _context.News.OrderByDescending(n => n.Id).ToListAsync() :
+                            null;
+
+            return news != null ? View(news) : Problem("Entity set 'AppDbContext.News' is null.");
         }
 
         public async Task<IActionResult> Nation()
         {
-            return _context.News != null ?
-                        View(await _context.News.ToListAsync()) :
-                        Problem("Entity set 'AppDbContext.News'  is null.");
+            var news = _context.News != null ?
+                            await _context.News.OrderByDescending(n => n.Id).ToListAsync() :
+                            null;
+
+            return news != null ? View(news) : Problem("Entity set 'AppDbContext.News' is null.");
         }
 
         public async Task<IActionResult> Details(int? id)
