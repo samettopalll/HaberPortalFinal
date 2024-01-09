@@ -4,45 +4,30 @@
     ViewData["Title"] = Model.Title;
 }
 
-
 <div style="margin-top:50px">
     <dl class="row">
-        
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             <h1>@Html.DisplayFor(model => model.Title)</h1>
         </dd>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             <h5>@Html.DisplayFor(model => model.Description)</h5>
-        </dd> 
+        </dd>
         <dd class="col-sm-10">
             <img src="~/newsPhotos/@Model.PhotoUrl" style="width:1000px; height:300px">
         </dd>
-        <dd class = "col-sm-10">
-            <p id="article" style="font-size:larger;">@Html.DisplayFor(model => model.Content)</p>
+        <dd class="col-sm-10">
+            @{
+                var paragraphs = Model.Content.Split(new[] { "\r\n\r\n" }, StringSplitOptions.None);
+                foreach (var paragraph in paragraphs)
+                {
+                    <p style="font-size:larger; font-weight:400" id="article">@Html.Raw(paragraph)</p>
+                }
+            }
         </dd>
     </dl>
 </div>
 
-<div>
-    <dl class="row">
-        <dd class="col-sm-12" style="margin-left:900px">
-            <p><span id="time"></span> dakikalık okuma süresi.</p>
-        </dd>
-    </dl>
-</div>
+
 
 <a href="#"> <i class="arrow up"></i></a>
 
-
-
-<script>
-    
-    function readingTime() {
-        const text = document.getElementById("article").innerText;
-        const wpm = 225;
-        const words = text.trim().split(/\s+/).length;
-        const time = Math.ceil(words / wpm);
-        document.getElementById("time").innerText = time;
-    }
-    readingTime();
-</script>
