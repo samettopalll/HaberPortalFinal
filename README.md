@@ -1,2 +1,2 @@
-# Internet-I
-Internet Programcılığı I Dersi Uygulamaları
+# Haber Portal Final
+Internet Programcılığı I Haber Portalı Final Çalışması
